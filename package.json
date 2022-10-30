@@ -1,0 +1,26 @@
+{
+  "name": "api-mongo-atlas",
+  "version": "1.0.0",
+  "description": "Mais um projeto de API usando MongoDB Atlas, apenas com fins de fixação de conteúdo.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabriel-cheng/api-mongo-atlas.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabriel-cheng/api-mongo-atlas/issues"
+  },
+  "homepage": "https://github.com/gabriel-cheng/api-mongo-atlas#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.7.0"
+  }
+}
