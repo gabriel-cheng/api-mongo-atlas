@@ -18,7 +18,7 @@ router.delete('/:id', async(req, res) => {
     }catch(err) {
         res.status(500).json({deleteError: err});
     }
-})
+});
 
 router.patch('/:id', async (req, res) => {
     const id = req.params.id;
@@ -35,12 +35,12 @@ router.patch('/:id', async (req, res) => {
         const updatePerson = await Person.updateOne({_id: id}, person);
 
         if(updatePerson.matchedCount === 0) {
-            res.status(422).json({ message: 'O usuário não foi encontrado!' })
+            res.status(422).json({ message: 'O usuário não foi encontrado!' });
         }
 
         res.status(200).json(person);
     }catch(err) {
-        res.status(500).json({patchError: err})
+        res.status(500).json({patchError: err});
     }
 });
 
@@ -62,12 +62,12 @@ router.post('/', async(req, res) => {
         name,
         salary,
         approved
-    }
+    };
 
     try {
         await Person.create(person);
 
-        res.status(200).json({status: 'Usuário criado com sucesso!'})
+        res.status(200).json({status: 'Usuário criado com sucesso!'});
     }catch(err) {
         console.log({createError: err});
     }
@@ -77,7 +77,7 @@ router.get('/:id', async(req, res) => {
     const id = req.params.id;
 
     try {
-        const person = await Person.findOne({_id: id})
+        const person = await Person.findOne({_id: id});
     
         if(!person) {
             console.log({findByIDError: 'Usuário não foi encontrado!'});
@@ -89,13 +89,13 @@ router.get('/:id', async(req, res) => {
     }catch(err) {
         console.log({findByIDError: err});
         res.status(500).json({findByIDError: err});
-    };
-})
+    }
+});
 
 router.get('/', (req, res) => {
     Person.find()
-    .then(e => res.status(200).json(e))
-    .catch(err => console.log({personFindError: err}));
+        .then(e => res.status(200).json(e))
+        .catch(err => console.log({personFindError: err}));
 });
 
 module.exports = router;
